@@ -1,140 +1,863 @@
-/* Reset */
+/* =========================================================
+   1. BASIC RESET
+   ========================================================= */
+
+/* Removes default browser spacing */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Body */
+/* Makes scrolling smooth */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Basic page styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+}
+
+
+/* Removes default link underline */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   2. LOGIN PAGE BACKGROUND
+   ========================================================= */
+
 .auth-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f4f4f4;
-  font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(circle at 10% 20%, #dbeafe 0, transparent 30%),
+        linear-gradient(135deg, #f8fafc, #eef5ff);
 }
 
-/* Container */
+
+/* =========================================================
+   3. MAIN LOGIN CONTAINER
+   ========================================================= */
+
 .auth-container {
-  display: flex;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  max-width: 900px;
-  width: 100%;
+    width: min(1050px, 100%);
+
+    min-height: 650px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.15);
+
+    animation: pageAppear 0.7s ease forwards;
 }
 
-/* Brand side */
+
+/* =========================================================
+   4. LEFT BRANDING SECTION
+   ========================================================= */
+
 .auth-brand {
-  flex: 1;
-  text-align: center;
-  background: #e6f0ff;
-  padding: 30px;
+    position: relative;
+
+    padding: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eff6ff,
+            #dbeafe
+        );
+
+    overflow: hidden;
 }
+
+
+/* Decorative background circle */
+.auth-brand::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    top: -100px;
+    left: -100px;
+}
+
+
+/* Second decorative circle */
+.auth-brand::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    bottom: -100px;
+    right: -80px;
+}
+
+
+/* =========================================================
+   5. LOGO
+   ========================================================= */
+
 .auth-brand .logo {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 15px;
+    position: absolute;
+
+    top: 35px;
+    left: 45px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #2563eb;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    z-index: 2;
 }
+
+
+/* =========================================================
+   6. ILLUSTRATION
+   ========================================================= */
+
+.auth-illustration {
+    width: 90px;
+    height: 90px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    font-size: 45px;
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.12);
+
+    animation: floatingIcon 3s ease-in-out infinite;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   7. BRANDING HEADING
+   ========================================================= */
+
 .auth-brand h1 {
-  font-size: 24px;
-  margin: 15px 0;
-}
-.auth-brand p {
-  color: #555;
+    max-width: 430px;
+
+    margin-bottom: 15px;
+
+    font-size: clamp(35px, 4vw, 52px);
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+
+    color: #111827;
+
+    position: relative;
+    z-index: 2;
 }
 
-/* Form side */
+
+/* Branding paragraph */
+.auth-brand > p {
+    max-width: 430px;
+
+    margin-bottom: 25px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   8. COLLEGE IMAGE
+   ========================================================= */
+
+.auth-brand .college-image {
+    width: 100%;
+    max-width: 420px;
+    height: 263px;
+
+    object-fit: fill;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.15);
+
+    position: relative;
+    z-index: 2;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* Image hover effect */
+.auth-brand .college-image:hover {
+    transform: translateY(-6px) scale(1.01);
+
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.18);
+}
+
+
+/* =========================================================
+   9. RIGHT LOGIN FORM
+   ========================================================= */
+
 .auth-form {
-  flex: 1;
-  padding: 30px;
+    padding: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #ffffff;
+
+    animation: formSlide 0.8s ease forwards;
 }
+
+
+/* =========================================================
+   10. BACK TO HOME
+   ========================================================= */
+
 .back-link {
-  display: inline-block;
-  margin-bottom: 15px;
-  color: #004080;
-  text-decoration: none;
+    align-self: flex-start;
+
+    margin-bottom: 45px;
+
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
+
+
+/* Back link hover */
+.back-link:hover {
+    color: #2563eb;
+
+    transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   11. FORM HEADING
+   ========================================================= */
+
+.form-heading {
+    margin-bottom: 30px;
+}
+
+
+/* Small heading label */
+.section-label {
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* Login heading */
 .form-heading h2 {
-  margin: 10px 0;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    color: #111827;
 }
+
+
+/* Login description */
 .form-heading p {
-  color: #555;
-  font-size: 14px;
+    color: #64748b;
+
+    font-size: 14px;
 }
 
-/* Form elements */
-form {
-  display: flex;
-  flex-direction: column;
+
+/* =========================================================
+   12. FORM LABELS
+   ========================================================= */
+
+.auth-form form > label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
 }
-label {
-  margin: 10px 0 5px;
-  font-weight: bold;
+
+
+/* =========================================================
+   13. INPUT FIELDS
+   ========================================================= */
+
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+
+    height: 48px;
+
+    margin-bottom: 20px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
-input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+
+
+/* Input focus effect */
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.1);
 }
+
+
+/* Placeholder styling */
+.auth-form input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   14. REMEMBER ME SECTION
+   ========================================================= */
+
 .remember {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  font-size: 14px;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin: -5px 0 22px;
+
+    font-size: 13px;
 }
+
+
+/* Remember checkbox label */
+.remember label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #64748b;
+
+    cursor: pointer;
+}
+
+
+/* Checkbox */
+.remember input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #2563eb;
+
+    cursor: pointer;
+}
+
+
+/* Forgot password */
+.remember a {
+    color: #2563eb;
+
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Forgot password hover */
+.remember a:hover {
+    color: #1d4ed8;
+}
+
+
+/* =========================================================
+   15. PRIMARY BUTTON
+   ========================================================= */
+
 .primary-btn {
-  background: #004080;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
+    border: none;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+
+/* Full-width button */
 .primary-btn.full {
-  width: 100%;
+    width: 100%;
+
+    min-height: 48px;
 }
 
-/* Divider + social */
+
+/* Button hover */
+.primary-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Button click effect */
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   16. DIVIDER
+   ========================================================= */
+
 .divider {
-  text-align: center;
-  margin: 20px 0;
-  position: relative;
-}
-.divider span {
-  background: #fff;
-  padding: 0 10px;
-  position: relative;
-  z-index: 1;
-}
-.divider:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: #ccc;
-}
-.social-btn {
-  background: #eee;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 4px;
-  cursor: pointer;
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 25px 0;
 }
 
-/* Register text */
-.register-text {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
+
+/* Lines on both sides of OR */
+.divider::before,
+.divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e5e7eb;
 }
+
+
+/* OR text */
+.divider span {
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   17. SOCIAL LOGIN BUTTON
+   ========================================================= */
+
+.social-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Social button hover */
+.social-btn:hover {
+    background: #f8fafc;
+
+    border-color: #bfdbfe;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   18. REGISTER TEXT
+   ========================================================= */
+
+.register-text {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* Create account link */
 .register-text a {
-  color: #004080;
-  text-decoration: none;
+    color: #2563eb;
+
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Link hover */
+.register-text a:hover {
+    color: #1d4ed8;
+}
+
+
+/* =========================================================
+   19. PAGE ENTRANCE ANIMATION
+   ========================================================= */
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   20. FORM SLIDE ANIMATION
+   ========================================================= */
+
+@keyframes formSlide {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================================
+   21. FLOATING ICON ANIMATION
+   ========================================================= */
+
+@keyframes floatingIcon {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   22. TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .auth-body {
+        padding: 20px;
+    }
+
+
+    .auth-container {
+        grid-template-columns: 0.9fr 1.1fr;
+
+        min-height: 600px;
+    }
+
+
+    .auth-brand {
+        padding: 40px;
+    }
+
+
+    .auth-form {
+        padding: 40px;
+    }
+
+
+    .auth-brand h1 {
+        font-size: 38px;
+    }
+
+
+    .auth-brand .college-image {
+        height: 140px;
+    }
+}
+
+
+/* =========================================================
+   23. MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    /* Page spacing */
+    .auth-body {
+        padding: 15px;
+    }
+
+
+    /* Change two columns into one column */
+    .auth-container {
+        display: block;
+
+        min-height: auto;
+
+        border-radius: 18px;
+    }
+
+
+    /* Branding section */
+    .auth-brand {
+        min-height: 390px;
+
+        padding: 90px 30px 35px;
+
+        text-align: center;
+
+        align-items: center;
+    }
+
+
+    /* Logo */
+    .auth-brand .logo {
+        top: 25px;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        white-space: nowrap;
+    }
+
+
+    /* Illustration */
+    .auth-illustration {
+        width: 70px;
+        height: 70px;
+
+        font-size: 35px;
+
+        margin-bottom: 18px;
+    }
+
+
+    /* Branding heading */
+    .auth-brand h1 {
+        font-size: 34px;
+    }
+
+
+    /* Branding paragraph */
+    .auth-brand > p {
+        font-size: 14px;
+    }
+
+
+    /* College image */
+    .auth-brand .college-image {
+        height: 130px;
+
+        max-width: 360px;
+    }
+
+
+    /* Login form */
+    .auth-form {
+        padding: 35px 25px;
+    }
+
+
+    /* Back link */
+    .back-link {
+        margin-bottom: 30px;
+    }
+
+
+    /* Login heading */
+    .form-heading h2 {
+        font-size: 27px;
+    }
+}
+
+
+/* =========================================================
+   24. SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .auth-brand {
+        min-height: 360px;
+
+        padding: 80px 20px 25px;
+    }
+
+
+    .auth-brand h1 {
+        font-size: 29px;
+    }
+
+
+    .auth-brand .college-image {
+        height: 110px;
+    }
+
+
+    .auth-form {
+        padding: 30px 20px;
+    }
+
+
+    .form-heading h2 {
+        font-size: 24px;
+    }
+
+
+    .remember {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
 }

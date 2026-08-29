@@ -1,0 +1,1038 @@
+
+/* =========================================================
+   1. BASIC RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Main body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f8fafc;
+
+    color: #172033;
+
+    line-height: 1.6;
+}
+
+
+/* Remove default link underline */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   2. NAVIGATION BAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 72px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* Website logo */
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #2563eb;
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+
+/* Navigation links */
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+.navbar nav a {
+    position: relative;
+
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Active and hover links */
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #2563eb;
+}
+
+
+/* Animated navigation underline */
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #2563eb;
+
+    transition: width 0.3s ease;
+}
+
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   3. SIGN IN BUTTON
+   ========================================================= */
+
+.login-btn {
+    padding: 10px 20px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.login-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   4. PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    padding: 70px 7% 50px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #dbeafe,
+            transparent 55%
+        );
+}
+
+
+/* Small heading label */
+.section-label {
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* Main page heading */
+.page-header h1 {
+    margin-top: 8px;
+
+    color: #111827;
+
+    font-size: clamp(35px, 5vw, 52px);
+
+    line-height: 1.15;
+
+    letter-spacing: -1.5px;
+
+    animation: fadeDown 0.7s ease forwards;
+}
+
+
+/* Header description */
+.page-header p {
+    max-width: 600px;
+
+    margin: 15px auto 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    animation: fadeUp 0.8s ease forwards;
+}
+
+
+/* =========================================================
+   5. EXPLORE AREA
+   ========================================================= */
+
+.explore-area {
+    width: min(1200px, 86%);
+
+    margin: 0 auto;
+
+    padding: 20px 0 80px;
+
+    display: grid;
+
+    grid-template-columns: 245px 1fr;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   6. FILTER SIDEBAR
+   ========================================================= */
+
+.filters {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+
+    position: sticky;
+
+    top: 95px;
+
+    animation: slideFromLeft 0.7s ease forwards;
+}
+
+
+/* Filter heading */
+.filters h3 {
+    margin-bottom: 25px;
+
+    color: #111827;
+
+    font-size: 18px;
+}
+
+
+/* Filter group */
+.filter-group {
+    padding-bottom: 22px;
+
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+
+/* Remove border from last group */
+.filter-group:last-of-type {
+    border-bottom: none;
+
+    margin-bottom: 5px;
+
+    padding-bottom: 5px;
+}
+
+
+/* Filter labels */
+.filter-group > label:first-child {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* Select boxes */
+.filter-group select {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 10px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Select focus */
+.filter-group select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* Checkbox option */
+.check {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 10px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Checkbox hover */
+.check:hover {
+    color: #2563eb;
+}
+
+
+/* Checkbox itself */
+.check input {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #2563eb;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   7. FILTER BUTTON
+   ========================================================= */
+
+.filter-btn {
+    width: 100%;
+
+    min-height: 43px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Filter button hover */
+.filter-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, 0.2);
+}
+
+
+/* =========================================================
+   8. RESULTS AREA
+   ========================================================= */
+
+.results {
+    min-width: 0;
+
+    animation: slideFromRight 0.7s ease forwards;
+}
+
+
+/* Results header */
+.results-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+/* Results heading */
+.results-top h2 {
+    color: #111827;
+
+    font-size: 24px;
+}
+
+
+/* Sort dropdown */
+.results-top select {
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.results-top select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   9. COLLEGE GRID
+   ========================================================= */
+
+.college-grid.large {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* College card */
+.college-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* College card hover */
+.college-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 18px 40px rgba(15, 23, 42, 0.1);
+}
+
+
+/* =========================================================
+   10. COLLEGE IMAGE
+   ========================================================= */
+
+.college-image {
+    height: 180px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 65px;
+}
+
+
+/* Image backgrounds */
+.college-image.blue {
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #bfdbfe
+        );
+}
+
+
+.college-image.purple {
+    background:
+        linear-gradient(
+            135deg,
+            #ede9fe,
+            #ddd6fe
+        );
+}
+
+
+.college-image.orange {
+    background:
+        linear-gradient(
+            135deg,
+            #ffedd5,
+            #fed7aa
+        );
+}
+
+
+.college-image.green {
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+}
+
+
+/* =========================================================
+   11. TOP BADGE
+   ========================================================= */
+
+.top-badge {
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    padding: 5px 10px;
+
+    background: #ffffff;
+
+    color: #2563eb;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   12. COLLEGE INFORMATION
+   ========================================================= */
+
+.college-info {
+    padding: 20px;
+}
+
+
+/* College name */
+.college-info h3 {
+    margin-bottom: 6px;
+
+    color: #172033;
+
+    font-size: 17px;
+
+    line-height: 1.35;
+}
+
+
+/* Location */
+.college-info > p {
+    margin-bottom: 14px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   13. TAGS
+   ========================================================= */
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 17px;
+}
+
+
+/* Individual tag */
+.tags span {
+    padding: 5px 9px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Tag hover */
+.tags span:hover {
+    background: #dbeafe;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   14. CARD BOTTOM
+   ========================================================= */
+
+.card-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-top: 1px solid #eef2f7;
+
+    color: #475569;
+
+    font-size: 12px;
+}
+
+
+/* Rating */
+.card-bottom .rating {
+    color: #f59e0b;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   15. VIEW DETAILS BUTTON
+   ========================================================= */
+
+.details-btn {
+    width: 100%;
+
+    min-height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 8px;
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Details hover */
+.details-btn:hover {
+    background: #2563eb;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   16. FOOTER
+   ========================================================= */
+
+footer {
+    padding: 25px 7%;
+
+    background: #111827;
+
+    color: #ffffff;
+}
+
+
+/* Copyright */
+.copyright {
+    text-align: center;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   17. ANIMATIONS
+   ========================================================= */
+
+
+/* Page heading animation */
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* General fade-up animation */
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* Filter animation */
+@keyframes slideFromLeft {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+
+/* Results animation */
+@keyframes slideFromRight {
+
+    from {
+        opacity: 0;
+
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================================
+   18. TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    /* Navigation */
+    .navbar {
+        padding: 0 5%;
+    }
+
+
+    /* Main explore area */
+    .explore-area {
+        width: 90%;
+
+        grid-template-columns: 210px 1fr;
+
+        gap: 20px;
+    }
+
+
+    /* Two cards remain on tablet */
+    .college-grid.large {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Footer */
+    footer {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
+/* =========================================================
+   19. MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 15px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+
+    /* Navigation goes to new row */
+    .navbar nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+
+    .login-btn {
+        padding: 8px 14px;
+    }
+
+
+    /* Page header */
+    .page-header {
+        padding: 55px 5% 35px;
+    }
+
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+
+    .page-header p {
+        font-size: 14px;
+    }
+
+
+    /* Explore layout */
+    .explore-area {
+        width: 90%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding-bottom: 60px;
+    }
+
+
+    /* Filters become full width */
+    .filters {
+        width: 100%;
+
+        position: static;
+    }
+
+
+    /* Results */
+    .results {
+        width: 100%;
+    }
+
+
+    /* Results heading */
+    .results-top {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .results-top select {
+        width: 100%;
+    }
+
+
+    /* One card per row */
+    .college-grid.large {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   20. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .navbar nav {
+        gap: 10px;
+    }
+
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+
+    .page-header h1 {
+        font-size: 30px;
+    }
+
+
+    .college-image {
+        height: 160px;
+    }
+
+
+    .college-info {
+        padding: 17px;
+    }
+
+
+    .college-info h3 {
+        font-size: 16px;
+    }
+
+
+    .filter-group {
+        padding-bottom: 18px;
+
+        margin-bottom: 18px;
+    }
+}

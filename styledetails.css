@@ -1,0 +1,983 @@
+/* =========================================================
+   1. BASIC RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f8fafc;
+
+    color: #172033;
+
+    line-height: 1.6;
+}
+
+
+/* Remove default link underline */
+a {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 72px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #2563eb;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+/* Navigation */
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+.navbar nav a {
+    position: relative;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Active / hover navigation */
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #2563eb;
+}
+
+
+/* Animated underline */
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #2563eb;
+
+    transition: width 0.3s ease;
+}
+
+
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   3. LOGIN BUTTON
+   ========================================================= */
+
+.login-btn {
+    padding: 10px 20px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.login-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   4. COLLEGE HERO
+   ========================================================= */
+
+.college-hero {
+    width: min(1200px, 86%);
+
+    margin: 45px auto 35px;
+
+    display: grid;
+
+    grid-template-columns: 330px 1fr;
+
+    gap: 35px;
+
+    align-items: center;
+
+    animation: fadeUp 0.7s ease forwards;
+}
+
+
+/* College cover */
+.college-cover {
+    height: 240px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #bfdbfe
+        );
+
+    font-size: 85px;
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.12);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* Cover hover */
+.college-cover:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(37, 99, 235, 0.18);
+}
+
+
+/* =========================================================
+   5. BADGE
+   ========================================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* College title */
+.college-title h1 {
+    max-width: 700px;
+
+    margin-top: 12px;
+
+    color: #111827;
+
+    font-size: clamp(32px, 5vw, 52px);
+
+    line-height: 1.12;
+
+    letter-spacing: -1.5px;
+}
+
+
+/* Location */
+.college-title > p {
+    margin-top: 12px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   6. RATING
+   ========================================================= */
+
+.detail-rating {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 20px;
+
+    color: #f59e0b;
+
+    font-size: 15px;
+}
+
+
+/* Rating number */
+.detail-rating strong {
+    color: #111827;
+
+    font-size: 20px;
+}
+
+
+/* Review text */
+.detail-rating span {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   7. DETAILS LAYOUT
+   ========================================================= */
+
+.details-layout {
+    width: min(1200px, 86%);
+
+    margin: 0 auto;
+
+    padding-bottom: 80px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 310px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* Main content */
+.details-main {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   8. CONTENT CARDS
+   ========================================================= */
+
+.content-card {
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+
+    animation: fadeUp 0.8s ease forwards;
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Card hover */
+.content-card:hover {
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.07);
+}
+
+
+/* Card heading */
+.content-card h2 {
+    margin-bottom: 15px;
+
+    color: #111827;
+
+    font-size: 22px;
+}
+
+
+/* Paragraph */
+.content-card > p {
+    margin-bottom: 13px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* Remove extra margin */
+.content-card > p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   9. COURSE LIST
+   ========================================================= */
+
+.course-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* Course */
+.course {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eef2f7;
+
+    transition:
+        padding 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Remove final border */
+.course:last-child {
+    border-bottom: none;
+}
+
+
+/* Course hover */
+.course:hover {
+    padding-left: 8px;
+
+    padding-right: 8px;
+
+    background: #f8fafc;
+}
+
+
+/* Course name */
+.course h3 {
+    color: #172033;
+
+    font-size: 14px;
+}
+
+
+/* Course details */
+.course p {
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* Course fee */
+.course > span {
+    flex-shrink: 0;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   10. REVIEWS
+   ========================================================= */
+
+.review {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+
+/* Last review */
+.review:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+
+/* Review avatar */
+.avatar {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+/* Review name */
+.review h3 {
+    color: #172033;
+
+    font-size: 14px;
+}
+
+
+/* Review stars */
+.review .rating {
+    margin: 3px 0;
+
+    color: #f59e0b;
+
+    font-size: 12px;
+}
+
+
+/* Review paragraph */
+.review p {
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. SIDEBAR
+   ========================================================= */
+
+.details-sidebar {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    position: sticky;
+
+    top: 95px;
+}
+
+
+/* =========================================================
+   12. APPLY CARD
+   ========================================================= */
+
+.apply-card {
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eff6ff,
+            #ffffff
+        );
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Apply card hover */
+.apply-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Apply heading */
+.apply-card h2 {
+    color: #111827;
+
+    font-size: 21px;
+}
+
+
+/* Apply description */
+.apply-card p {
+    margin: 8px 0 20px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   13. PRIMARY BUTTON
+   ========================================================= */
+
+.primary-btn {
+    width: 100%;
+
+    min-height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 11px 18px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Primary button hover */
+.primary-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   14. COLLEGE INFORMATION
+   ========================================================= */
+
+.info-card {
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+}
+
+
+/* Information heading */
+.info-card h3 {
+    margin-bottom: 15px;
+
+    color: #111827;
+
+    font-size: 17px;
+}
+
+
+/* Information row */
+.info-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+
+/* Remove final border */
+.info-row:last-child {
+    border-bottom: none;
+}
+
+
+/* Information label */
+.info-row span {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* Information value */
+.info-row strong {
+    color: #334155;
+
+    font-size: 12px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   15. ANIMATIONS
+   ========================================================= */
+
+
+/* Main entrance animation */
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   16. TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+
+    .college-hero {
+        width: 90%;
+
+        grid-template-columns: 270px 1fr;
+
+        gap: 25px;
+    }
+
+
+    .college-cover {
+        height: 210px;
+
+        font-size: 70px;
+    }
+
+
+    .details-layout {
+        width: 90%;
+
+        grid-template-columns: 1fr 270px;
+
+        gap: 22px;
+    }
+}
+
+
+/* =========================================================
+   17. MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 15px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+
+    /* Navigation moves to another row */
+    .navbar nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+
+    .login-btn {
+        padding: 8px 14px;
+    }
+
+
+    /* College hero */
+    .college-hero {
+        width: 90%;
+
+        margin-top: 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 22px;
+    }
+
+
+    /* Cover becomes full width */
+    .college-cover {
+        width: 100%;
+
+        height: 190px;
+
+        font-size: 65px;
+    }
+
+
+    /* College title */
+    .college-title h1 {
+        font-size: 34px;
+    }
+
+
+    /* Details */
+    .details-layout {
+        width: 90%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .details-main,
+    .details-sidebar {
+        width: 100%;
+    }
+
+
+    /* Sidebar no longer sticks on mobile */
+    .details-sidebar {
+        position: static;
+    }
+
+
+    /* Cards */
+    .content-card,
+    .apply-card,
+    .info-card {
+        padding: 21px;
+    }
+
+
+    /* Course */
+    .course {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 7px;
+    }
+
+
+    .course > span {
+        align-self: flex-start;
+    }
+}
+
+
+/* =========================================================
+   18. SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .navbar nav {
+        gap: 10px;
+    }
+
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+
+    .college-cover {
+        height: 160px;
+
+        font-size: 55px;
+    }
+
+
+    .college-title h1 {
+        font-size: 29px;
+    }
+
+
+    .college-title > p {
+        font-size: 13px;
+    }
+
+
+    .detail-rating {
+        flex-wrap: wrap;
+
+        gap: 6px;
+    }
+
+
+    .content-card h2 {
+        font-size: 20px;
+    }
+
+
+    .content-card > p {
+        font-size: 13px;
+    }
+
+
+    .review {
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   19. REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

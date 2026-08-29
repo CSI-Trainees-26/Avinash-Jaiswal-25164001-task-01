@@ -1,184 +1,1150 @@
-/* Reset */
+/* =========================================================
+   1. BASIC RESET
+   ========================================================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Body */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Main body */
 body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f8fafc;
+    color: #172033;
+
+    line-height: 1.6;
 }
 
-/* Navbar */
-header.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #004080;
-  color: #fff;
-  padding: 15px 20px;
+
+/* Remove default link underline */
+a {
+    text-decoration: none;
+    color: inherit;
 }
-header .logo {
-  font-weight: bold;
-  font-size: 18px;
+
+
+/* =========================================================
+   2. NAVIGATION BAR
+   ========================================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 72px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
 }
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
+
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #2563eb;
+
+    font-size: 22px;
+    font-weight: 800;
 }
-header nav a.active {
-  border-bottom: 2px solid #fff;
+
+
+/* Navigation */
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
 }
+
+
+/* Navigation links */
+.navbar nav a {
+    position: relative;
+
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Active and hover navigation */
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #2563eb;
+}
+
+
+/* Navigation underline */
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #2563eb;
+
+    transition: width 0.3s ease;
+}
+
+
+/* Animated underline */
+.navbar nav a:hover::after,
+.navbar nav a.active::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   3. MINI PROFILE
+   ========================================================= */
+
 .profile-mini {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
 }
+
+
+/* Small avatar */
 .avatar {
-  background: #fff;
-  color: #004080;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 6px 10px;
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+    color: #2563eb;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 
-/* Dashboard header */
+
+/* Avatar hover */
+.profile-mini:hover .avatar {
+    transform: scale(1.08);
+
+    background: #bfdbfe;
+}
+
+
+/* =========================================================
+   4. MAIN DASHBOARD AREA
+   ========================================================= */
+
+main {
+    width: min(1200px, 86%);
+
+    margin: 0 auto;
+
+    padding: 55px 0 80px;
+}
+
+
+/* =========================================================
+   5. DASHBOARD HEADER
+   ========================================================= */
+
 .dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 20px;
-  background: #e6f0ff;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+
+    animation: slideDown 0.7s ease forwards;
 }
+
+
+/* Small heading label */
+.section-label {
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* Main dashboard heading */
 .dashboard-header h1 {
-  margin: 10px 0;
+    margin-top: 8px;
+
+    font-size: clamp(30px, 4vw, 44px);
+
+    line-height: 1.2;
+
+    color: #111827;
+
+    letter-spacing: -1px;
 }
+
+
+/* Dashboard description */
+.dashboard-header p {
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   6. PRIMARY BUTTON
+   ========================================================= */
+
 .primary-btn {
-  background: #004080;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 4px;
-  text-decoration: none;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* Stats section */
+
+/* Button hover */
+.primary-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================================================
+   7. DASHBOARD STATISTICS
+   ========================================================= */
+
 .dashboard-stats {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
 }
+
+
+/* Individual stat card */
 .stat-card {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 15px;
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: fadeUp 0.7s ease forwards;
 }
+
+
+/* Stat card hover */
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 15px 30px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Stat icon */
 .stat-icon {
-  font-size: 24px;
-}
-.blue-icon { color: #004080; }
-.purple-icon { color: purple; }
-.green-icon { color: green; }
-.orange-icon { color: orange; }
+    width: 48px;
+    height: 48px;
 
-/* Dashboard grid */
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* Different icon backgrounds */
+.blue-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+
+.purple-icon {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+
+.green-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+
+.orange-icon {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+
+/* Stat title */
+.stat-card div span {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* Stat number */
+.stat-card strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #111827;
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   8. DASHBOARD GRID
+   ========================================================= */
+
 .dashboard-grid {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 25px;
+
+    margin-bottom: 30px;
 }
+
+
+/* Common dashboard card */
 .dashboard-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 20px;
-  flex: 2;
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
 }
-.profile-card {
-  flex: 1;
-  text-align: center;
+
+
+/* Card hover */
+.dashboard-card:hover {
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.07);
 }
+
+
+/* =========================================================
+   9. CARD HEADING
+   ========================================================= */
+
 .card-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
 }
+
+
+/* Card heading */
+.card-heading h2 {
+    margin-top: 5px;
+
+    font-size: 23px;
+
+    line-height: 1.2;
+
+    color: #111827;
+}
+
+
+/* Heading links */
+.card-heading > a {
+    color: #2563eb;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Link hover */
+.card-heading > a:hover {
+    color: #1d4ed8;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   10. APPLICATION LIST
+   ========================================================= */
+
 .application {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eef2f7;
+
+    transition:
+        background 0.3s ease,
+        padding 0.3s ease;
 }
+
+
+/* Removes border from last application */
+.application:last-child {
+    border-bottom: none;
+}
+
+
+/* Application hover */
+.application:hover {
+    padding-left: 8px;
+
+    background: #f8fafc;
+}
+
+
+/* Small college icon */
 .college-small {
-  font-size: 30px;
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #dbeafe;
+
+    font-size: 23px;
 }
+
+
+/* Purple college icon */
+.college-small.purple {
+    background: #ede9fe;
+}
+
+
+/* Orange college icon */
+.college-small.orange {
+    background: #ffedd5;
+}
+
+
+/* Application information */
+.application-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* College name */
+.application-info h3 {
+    color: #172033;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Course name */
+.application-info p {
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   11. APPLICATION STATUS
+   ========================================================= */
+
 .status {
-  margin-left: auto;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-}
-.status.accepted { background: #d4edda; color: #155724; }
-.status.pending { background: #fff3cd; color: #856404; }
-.status.rejected { background: #f8d7da; color: #721c24; }
+    padding: 6px 11px;
 
-/* Profile card */
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* Accepted */
+.status.accepted {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+
+/* Pending */
+.status.pending {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+
+/* Rejected */
+.status.rejected {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   12. PROFILE CARD
+   ========================================================= */
+
+.profile-card {
+    text-align: center;
+
+    animation: fadeUp 0.8s ease forwards;
+}
+
+
+/* Large profile avatar */
 .profile-large {
-  background: #004080;
-  color: #fff;
-  font-size: 30px;
-  border-radius: 50%;
-  display: inline-block;
-  padding: 20px;
-  margin-bottom: 10px;
-}
-.profile-info {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-.outline-btn {
-  display: inline-block;
-  border: 1px solid #004080;
-  color: #004080;
-  padding: 6px 12px;
-  border-radius: 4px;
-  text-decoration: none;
-  margin-top: 10px;
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    border: 5px solid #eff6ff;
 }
 
-/* Saved colleges */
+
+/* Profile name */
+.profile-card h2 {
+    color: #111827;
+
+    font-size: 21px;
+}
+
+
+/* Profile subtitle */
+.profile-card > p {
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* Horizontal line */
+.profile-card hr {
+    border: none;
+
+    height: 1px;
+
+    background: #e5e7eb;
+
+    margin: 22px 0;
+}
+
+
+/* =========================================================
+   13. PROFILE INFORMATION
+   ========================================================= */
+
+.profile-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 10px 0;
+
+    text-align: left;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+
+/* Profile labels */
+.profile-info span {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* Profile values */
+.profile-info strong {
+    color: #334155;
+
+    font-size: 12px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   14. OUTLINE BUTTON
+   ========================================================= */
+
+.outline-btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 43px;
+
+    margin-top: 22px;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 8px;
+
+    color: #2563eb;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Outline button hover */
+.outline-btn:hover {
+    background: #2563eb;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   15. SAVED COLLEGES
+   ========================================================= */
+
 .saved-section {
-  margin: 20px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 20px;
+    margin-top: 0;
+
+    animation: fadeUp 0.9s ease forwards;
 }
+
+
+/* Saved colleges grid */
 .saved-grid {
-  display: flex;
-  gap: 20px;
-  margin-top: 15px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
 }
+
+
+/* Individual saved college */
 .saved-college {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: #f9f9f9;
-  padding: 10px;
-  border-radius: 6px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
-.college-image {
-  font-size: 30px;
+
+
+/* Saved college hover */
+.saved-college:hover {
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.07);
 }
+
+
+/* Saved college image */
+.saved-college .college-image {
+    width: 90px;
+    height: 75px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 30px;
+}
+
+
+/* Blue image */
+.college-image.blue {
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #bfdbfe
+    );
+}
+
+
+/* Purple image */
+.college-image.purple {
+    background: linear-gradient(
+        135deg,
+        #ede9fe,
+        #ddd6fe
+    );
+}
+
+
+/* Saved college title */
+.saved-college h3 {
+    color: #172033;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+}
+
+
+/* Saved college details */
+.saved-college p {
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   16. PAGE ANIMATIONS
+   ========================================================= */
+
+/* Dashboard header animation */
+@keyframes slideDown {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* Cards entrance animation */
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   17. TABLET RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+
+    main {
+        width: 90%;
+    }
+
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .profile-card {
+        text-align: left;
+    }
+
+
+    .profile-large {
+        margin-left: 0;
+    }
+}
+
+
+/* =========================================================
+   18. MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Navigation */
+    .navbar {
+        padding: 15px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+
+    /* Navigation moves to a new row */
+    .navbar nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+
+    /* Profile */
+    .profile-mini span {
+        display: none;
+    }
+
+
+    .profile-mini .avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    /* Main */
+    main {
+        width: 90%;
+
+        padding: 40px 0 60px;
+    }
+
+
+    /* Dashboard header */
+    .dashboard-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .dashboard-header h1 {
+        font-size: 32px;
+    }
+
+
+    .primary-btn {
+        width: 100%;
+    }
+
+
+    /* Statistics */
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    /* Dashboard cards */
+    .dashboard-card {
+        padding: 20px;
+    }
+
+
+    /* Card heading */
+    .card-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    /* Applications */
+    .application {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+
+    .application-info {
+        width: calc(100% - 63px);
+    }
+
+
+    .status {
+        margin-left: 63px;
+    }
+
+
+    /* Saved colleges */
+    .saved-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .saved-college .college-image {
+        width: 80px;
+        height: 70px;
+    }
+}
+
+
+/* =========================================================
+   19. SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .navbar nav {
+        gap: 10px;
+    }
+
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+
+    .dashboard-header h1 {
+        font-size: 28px;
+    }
+
+
+    .dashboard-header p {
+        font-size: 13px;
+    }
+
+
+    .stat-card {
+        padding: 17px;
+    }
+
+
+    .card-heading h2 {
+        font-size: 20px;
+    }
+
+
+    .application-info h3 {
+        font-size: 13px;
+    }
+
+
+    .status {
+        margin-left: 0;
+
+        margin-top: 5px;
+    }
+
+
+    .saved-college {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .saved-college .college-image {
+        width: 100%;
+        height: 100px;
+    }
+}
+
